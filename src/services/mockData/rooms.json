@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "propertyId": "1",
+    "type": "kitchen",
+    "name": "Main Kitchen",
+    "order": 1
+  },
+  {
+    "Id": 2,
+    "propertyId": "1",
+    "type": "bathroom",
+    "name": "Master Bathroom",
+    "order": 2
+  },
+  {
+    "Id": 3,
+    "propertyId": "1",
+    "type": "flooring",
+    "name": "Living Room Flooring",
+    "order": 3
+  },
+  {
+    "Id": 4,
+    "propertyId": "2",
+    "type": "kitchen",
+    "name": "Kitchen Renovation",
+    "order": 1
+  },
+  {
+    "Id": 5,
+    "propertyId": "2",
+    "type": "mechanicals",
+    "name": "HVAC System",
+    "order": 2
+  }
+]

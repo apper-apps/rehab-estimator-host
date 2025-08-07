@@ -1,0 +1,86 @@
+[
+  {
+    "Id": 1,
+    "roomId": "1",
+    "category": "flooring",
+    "description": "Tile flooring installation",
+    "cost": 3500
+  },
+  {
+    "Id": 2,
+    "roomId": "1",
+    "category": "paint",
+    "description": "Kitchen cabinet painting",
+    "cost": 1200
+  },
+  {
+    "Id": 3,
+    "roomId": "1",
+    "category": "electrical",
+    "description": "Under-cabinet lighting",
+    "cost": 800
+  },
+  {
+    "Id": 4,
+    "roomId": "1",
+    "category": "plumbing",
+    "description": "Sink and faucet installation",
+    "cost": 650
+  },
+  {
+    "Id": 5,
+    "roomId": "2",
+    "category": "flooring",
+    "description": "Luxury vinyl plank",
+    "cost": 1800
+  },
+  {
+    "Id": 6,
+    "roomId": "2",
+    "category": "paint",
+    "description": "Bathroom walls and ceiling",
+    "cost": 400
+  },
+  {
+    "Id": 7,
+    "roomId": "2",
+    "category": "plumbing",
+    "description": "Vanity and toilet replacement",
+    "cost": 1100
+  },
+  {
+    "Id": 8,
+    "roomId": "3",
+    "category": "flooring",
+    "description": "Hardwood refinishing",
+    "cost": 2200
+  },
+  {
+    "Id": 9,
+    "roomId": "4",
+    "category": "flooring",
+    "description": "Ceramic tile flooring",
+    "cost": 2800
+  },
+  {
+    "Id": 10,
+    "roomId": "4",
+    "category": "electrical",
+    "description": "Kitchen electrical upgrade",
+    "cost": 950
+  },
+  {
+    "Id": 11,
+    "roomId": "5",
+    "category": "mechanicals",
+    "description": "HVAC system replacement",
+    "cost": 8500
+  },
+  {
+    "Id": 12,
+    "roomId": "5",
+    "category": "electrical",
+    "description": "Electrical panel upgrade",
+    "cost": 1800
+  }
+]
