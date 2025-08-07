@@ -29,7 +29,7 @@ const RehabEstimatorPage = () => {
     setPropertyData(data);
   }, []);
 
-  const handleAddRoom = async (roomType) => {
+const handleAddRoom = async (roomType) => {
     try {
       const newRoom = await roomService.create({
         propertyId: "current",
@@ -50,6 +50,45 @@ const RehabEstimatorPage = () => {
       toast.error("Failed to add room section");
     }
   };
+
+  // Auto-populate all room types on mount
+  useEffect(() => {
+    const initializeAllRooms = async () => {
+      if (rooms.length > 0) return; // Don't reinitialize if rooms exist
+      
+      const defaultRooms = [
+        { value: "kitchen", label: "Kitchen" },
+        { value: "bathroom", label: "Bathroom" },
+        { value: "living", label: "Living Room" },
+        { value: "bedroom", label: "Bedroom" },
+        { value: "flooring", label: "Flooring" },
+        { value: "mechanicals", label: "Mechanicals" },
+        { value: "exterior", label: "Exterior" }
+      ];
+
+      for (const roomType of defaultRooms) {
+        try {
+          const newRoom = await roomService.create({
+            propertyId: "current",
+            type: roomType.value,
+            name: roomType.label,
+            order: rooms.length + 1
+          });
+          
+          const roomWithCostItems = {
+            ...newRoom,
+            costItems: []
+          };
+          
+          setRooms(prev => [...prev, roomWithCostItems]);
+        } catch (error) {
+          console.error(`Failed to initialize ${roomType.label}:`, error);
+        }
+      }
+    };
+
+    initializeAllRooms();
+  }, []);
 
   const handleDeleteRoom = async (roomId) => {
     try {

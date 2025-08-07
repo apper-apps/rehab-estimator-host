@@ -157,10 +157,11 @@ const RoomSection = ({ room, onUpdate, onDelete, onCostChange }) => {
             </div>
           ) : (
             <div className="space-y-3">
-              {costItems.map((item) => (
+{costItems.map((item) => (
                 <CostItemRow
                   key={item.Id}
                   item={item}
+                  roomType={room.type}
                   onUpdate={handleUpdateCostItem}
                   onDelete={handleDeleteCostItem}
                 />
