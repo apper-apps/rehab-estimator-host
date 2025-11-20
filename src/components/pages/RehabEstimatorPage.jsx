@@ -51,12 +51,12 @@ return (
             </div>
 
             {rooms.length === 0 ? (
-              <Empty
+<Empty
                 icon="Home"
-                title="No room sections yet"
-                description="Add different room sections to organize and calculate repair costs for your property rehabilitation project"
+                title="No construction categories yet"
+                description="Add different construction categories to organize and calculate repair costs for your property rehabilitation project"
                 action={() => {}}
-                actionLabel="Add Room Section"
+                actionLabel="Add Construction Category"
               />
             ) : (
               <div className="space-y-6">

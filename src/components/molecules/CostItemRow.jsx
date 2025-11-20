@@ -4,160 +4,149 @@ import Button from "@/components/atoms/Button";
 import { cn } from "@/utils/cn";
 
 const repairCategoriesByRoom = {
-  kitchen: [
-    { category: "flooring", name: "Flooring - Tile", range: "$8-15/sq ft", description: "Ceramic or porcelain tile installation" },
-    { category: "flooring", name: "Flooring - Hardwood", range: "$8-12/sq ft", description: "Hardwood flooring installation" },
-    { category: "cabinets", name: "Kitchen Cabinets - Refacing", range: "$4,000-8,000", description: "Cabinet door and drawer front replacement" },
-    { category: "cabinets", name: "Kitchen Cabinets - Full Replace", range: "$12,000-25,000", description: "Complete cabinet replacement" },
-    { category: "countertops", name: "Countertops - Quartz", range: "$50-90/sq ft", description: "Quartz countertop installation" },
-    { category: "countertops", name: "Countertops - Granite", range: "$40-75/sq ft", description: "Granite countertop installation" },
-    { category: "appliances", name: "Appliances - Basic Package", range: "$2,500-4,000", description: "Refrigerator, stove, dishwasher, microwave" },
-    { category: "appliances", name: "Appliances - Premium Package", range: "$5,000-10,000", description: "High-end appliance package" },
-    { category: "paint", name: "Paint - Interior", range: "$2-4/sq ft", description: "Interior wall and ceiling painting" },
-    { category: "electrical", name: "Electrical - Kitchen Upgrade", range: "$800-1,500", description: "Additional outlets and lighting" },
-    { category: "plumbing", name: "Plumbing - Sink Installation", range: "$300-800", description: "Kitchen sink and faucet installation" }
+  demolition: [
+    { category: "interior_demolition", name: "Interior Demolition Items", range: "$2-8/sq ft", description: "Interior wall and fixture demolition" },
+    { category: "building_demolition", name: "Entire Building Demolition", range: "$5,000-15,000", description: "Complete structure demolition" }
   ],
-  bathroom: [
-    { category: "flooring", name: "Flooring - Tile", range: "$8-18/sq ft", description: "Bathroom tile flooring" },
-    { category: "flooring", name: "Flooring - Vinyl", range: "$4-8/sq ft", description: "Luxury vinyl plank flooring" },
-    { category: "fixtures", name: "Vanity - Standard", range: "$300-800", description: "Basic bathroom vanity with sink" },
-    { category: "fixtures", name: "Vanity - Custom", range: "$800-2,000", description: "Custom vanity installation" },
-    { category: "fixtures", name: "Toilet Replacement", range: "$200-500", description: "Standard toilet replacement" },
-    { category: "fixtures", name: "Shower/Tub - Standard", range: "$1,200-3,000", description: "Fiberglass or acrylic unit" },
-    { category: "fixtures", name: "Shower/Tub - Tile", range: "$3,000-8,000", description: "Custom tile shower installation" },
-    { category: "paint", name: "Paint - Bathroom", range: "$3-6/sq ft", description: "Moisture-resistant bathroom paint" },
-    { category: "electrical", name: "Electrical - Bathroom", range: "$400-800", description: "GFCI outlets and ventilation" },
-    { category: "plumbing", name: "Plumbing - Full Rough-in", range: "$1,500-3,000", description: "Complete bathroom plumbing" }
+  framing: [
+    { category: "structural_framing", name: "Structural Framing Assemblies", range: "$8-15/sq ft", description: "Load-bearing structural framing" },
+    { category: "interior_framing", name: "Interior Framing Assemblies", range: "$3-8/sq ft", description: "Non-structural interior framing" }
   ],
-  living: [
-    { category: "flooring", name: "Flooring - Hardwood", range: "$8-12/sq ft", description: "Hardwood flooring installation" },
-    { category: "flooring", name: "Flooring - Laminate", range: "$3-8/sq ft", description: "Laminate flooring installation" },
-    { category: "flooring", name: "Flooring - Carpet", range: "$2-6/sq ft", description: "Carpet installation" },
-    { category: "paint", name: "Paint - Interior", range: "$2-4/sq ft", description: "Interior wall and ceiling painting" },
-    { category: "electrical", name: "Electrical - Lighting", range: "$200-800", description: "Ceiling fans and light fixtures" },
-    { category: "windows", name: "Windows - Standard", range: "$400-800/window", description: "Double-pane vinyl windows" },
-    { category: "windows", name: "Windows - Premium", range: "$600-1,200/window", description: "Energy-efficient windows" },
-    { category: "doors", name: "Interior Doors", range: "$150-400/door", description: "Standard interior door replacement" }
+  insulation: [
+    { category: "insulation", name: "Blown-in Insulation", range: "$1.50-3.50/sq ft", description: "Attic blown-in insulation" },
+    { category: "insulation", name: "Batt Insulation", range: "$1-2.50/sq ft", description: "Fiberglass batt insulation" },
+    { category: "insulation", name: "Spray Foam Insulation", range: "$3-7/sq ft", description: "Closed-cell spray foam insulation" }
   ],
-  bedroom: [
-    { category: "flooring", name: "Flooring - Hardwood", range: "$8-12/sq ft", description: "Hardwood flooring installation" },
-    { category: "flooring", name: "Flooring - Carpet", range: "$2-6/sq ft", description: "Bedroom carpet installation" },
-    { category: "paint", name: "Paint - Interior", range: "$2-4/sq ft", description: "Bedroom wall and ceiling painting" },
-    { category: "electrical", name: "Electrical - Outlets", range: "$150-300", description: "Additional outlets and switches" },
-    { category: "windows", name: "Windows - Standard", range: "$400-800/window", description: "Bedroom window replacement" },
-    { category: "doors", name: "Interior Doors", range: "$150-400/door", description: "Bedroom door replacement" },
-    { category: "fixtures", name: "Closet System", range: "$500-1,500", description: "Built-in closet organization" }
+  drywall: [
+    { category: "drywall", name: "Drywall Installation", range: "$1.50-3/sq ft", description: "Drywall hanging and finishing" },
+    { category: "drywall", name: "Drywall Repair", range: "$200-500/room", description: "Patch and repair existing drywall" },
+    { category: "drywall", name: "Texture Application", range: "$0.75-1.50/sq ft", description: "Wall texture application" }
   ],
-  flooring: [
-    { category: "flooring", name: "Hardwood - Refinishing", range: "$3-5/sq ft", description: "Sand and refinish existing hardwood" },
-    { category: "flooring", name: "Hardwood - New Installation", range: "$8-12/sq ft", description: "New hardwood flooring" },
-    { category: "flooring", name: "Tile - Ceramic", range: "$5-10/sq ft", description: "Ceramic tile installation" },
-    { category: "flooring", name: "Tile - Porcelain", range: "$8-15/sq ft", description: "Porcelain tile installation" },
-    { category: "flooring", name: "Vinyl - Luxury Plank", range: "$4-8/sq ft", description: "Luxury vinyl plank flooring" },
-    { category: "flooring", name: "Laminate", range: "$3-8/sq ft", description: "Laminate flooring installation" },
-    { category: "flooring", name: "Carpet", range: "$2-6/sq ft", description: "Wall-to-wall carpeting" }
+  kitchen_package: [
+    { category: "kitchen_assembly", name: "Basic Kitchen Assembly", range: "$15,000-25,000", description: "Standard kitchen package with basic appliances" },
+    { category: "kitchen_assembly", name: "Premium Kitchen Assembly", range: "$30,000-50,000", description: "High-end kitchen with premium finishes" },
+    { category: "kitchen_assembly", name: "Custom Kitchen Assembly", range: "$50,000-100,000", description: "Fully custom kitchen design and installation" }
   ],
-  mechanicals: [
-    { category: "hvac", name: "HVAC - System Replacement", range: "$5,000-12,000", description: "Complete HVAC system replacement" },
-    { category: "hvac", name: "HVAC - Ductwork", range: "$2,000-5,000", description: "Ductwork repair or replacement" },
-    { category: "electrical", name: "Electrical - Panel Upgrade", range: "$1,200-2,500", description: "Electrical panel upgrade to 200 amp" },
-    { category: "electrical", name: "Electrical - Rewiring", range: "$3,000-8,000", description: "Whole house rewiring" },
-    { category: "plumbing", name: "Plumbing - Repiping", range: "$4,000-10,000", description: "Whole house repiping" },
-    { category: "plumbing", name: "Plumbing - Water Heater", range: "$800-2,000", description: "Water heater replacement" },
-    { category: "insulation", name: "Insulation - Attic", range: "$1.50-3.50/sq ft", description: "Blown-in attic insulation" }
+  bathroom_package: [
+    { category: "full_bathroom", name: "Full Bathroom Package - Standard", range: "$8,000-15,000", description: "Complete bathroom with tub/shower combo" },
+    { category: "full_bathroom", name: "Full Bathroom Package - Premium", range: "$15,000-25,000", description: "Luxury full bathroom package" },
+    { category: "half_bathroom", name: "Half Bathroom Package - Standard", range: "$3,000-6,000", description: "Powder room with toilet and vanity" },
+    { category: "half_bathroom", name: "Half Bathroom Package - Premium", range: "$6,000-12,000", description: "High-end half bathroom" }
   ],
-exterior: [
-    // Roofing
-    { category: "roofing", name: "Asphalt Roofing - Standard Shingles", range: "$5-8/sq ft", description: "Standard asphalt shingle roof replacement" },
-    { category: "roofing", name: "Asphalt Roofing - Architectural Shingles", range: "$7-12/sq ft", description: "Premium architectural asphalt shingles" },
-    { category: "roofing", name: "Metal Roofing - Standing Seam", range: "$8-14/sq ft", description: "Standing seam metal roof installation" },
-    { category: "roofing", name: "Metal Roofing - Corrugated", range: "$6-10/sq ft", description: "Corrugated metal roofing system" },
-    { category: "roofing", name: "Tile Roofing", range: "$10-18/sq ft", description: "Clay or concrete tile roofing" },
-    { category: "roofing", name: "Slate Roofing", range: "$15-25/sq ft", description: "Natural slate roof installation" },
-    { category: "roofing", name: "Roof Repair - Shingle Replacement", range: "$200-500/section", description: "Partial shingle replacement and repair" },
-    { category: "roofing", name: "Gutters & Downspouts", range: "$8-15/linear ft", description: "Gutter system installation" },
-    { category: "roofing", name: "Roof Flashing Repair", range: "$300-800/repair", description: "Chimney and vent flashing repair" },
-
-    // Siding
-    { category: "siding", name: "Vinyl Siding", range: "$3-7/sq ft", description: "Vinyl siding installation with trim" },
-    { category: "siding", name: "Fiber Cement Siding", range: "$6-12/sq ft", description: "HardiePlank or similar fiber cement siding" },
-    { category: "siding", name: "Wood Siding - Cedar", range: "$8-15/sq ft", description: "Cedar wood siding installation" },
-    { category: "siding", name: "Brick Veneer", range: "$12-20/sq ft", description: "Brick veneer siding installation" },
-    { category: "siding", name: "Stone Veneer", range: "$15-25/sq ft", description: "Natural or cultured stone veneer" },
-    { category: "siding", name: "Aluminum Siding", range: "$4-8/sq ft", description: "Aluminum siding with insulation" },
-    { category: "siding", name: "Stucco Repair", range: "$6-12/sq ft", description: "Stucco repair and refinishing" },
-
-    // Masonry
-    { category: "masonry", name: "Brick Repointing", range: "$8-15/sq ft", description: "Mortar joint repair and repointing" },
-    { category: "masonry", name: "Stone Foundation Repair", range: "$15-30/sq ft", description: "Stone foundation restoration" },
-    { category: "masonry", name: "Chimney Repair", range: "$1,500-4,000/chimney", description: "Chimney reconstruction and repair" },
-    { category: "masonry", name: "Block Wall Construction", range: "$12-20/sq ft", description: "Concrete block wall construction" },
-    { category: "masonry", name: "Retaining Wall - Block", range: "$20-35/sq ft", description: "Segmented block retaining wall" },
-
-    // Exterior Painting
-    { category: "paint", name: "House Exterior Paint - Full", range: "$2-5/sq ft", description: "Complete exterior house painting" },
-    { category: "paint", name: "Trim & Window Paint", range: "$3-8/linear ft", description: "Exterior trim and window painting" },
-    { category: "paint", name: "Deck Staining", range: "$2-4/sq ft", description: "Deck cleaning and staining" },
-    { category: "paint", name: "Fence Painting/Staining", range: "$1.50-3/sq ft", description: "Fence painting or staining" },
-
-    // Exterior Doors
-    { category: "doors", name: "Entry Door - Standard", range: "$500-1,500/door", description: "Standard entry door with hardware" },
-    { category: "doors", name: "Entry Door - Premium", range: "$1,500-3,500/door", description: "Premium entry door with sidelights" },
-    { category: "doors", name: "Patio Door", range: "$800-2,500/door", description: "Sliding or French patio door" },
-    { category: "doors", name: "Storm Door", range: "$200-600/door", description: "Storm door installation" },
-    { category: "doors", name: "Door Hardware Upgrade", range: "$100-300/door", description: "Lockset and hardware upgrade" },
-
-    // Windows
-    { category: "windows", name: "Vinyl Windows", range: "$400-800/window", description: "Double-hung vinyl window replacement" },
-    { category: "windows", name: "Wood Windows", range: "$600-1,200/window", description: "Wood window replacement" },
-    { category: "windows", name: "Fiberglass Windows", range: "$500-1,000/window", description: "Fiberglass window installation" },
-    { category: "windows", name: "Bay/Bow Windows", range: "$1,500-3,500/window", description: "Bay or bow window installation" },
-    { category: "windows", name: "Window Trim Repair", range: "$150-400/window", description: "Exterior window trim repair" },
-
-    // Decks/Porches
-    { category: "decks", name: "Pressure Treated Deck", range: "$15-25/sq ft", description: "Pressure treated lumber deck" },
-    { category: "decks", name: "Composite Decking", range: "$25-40/sq ft", description: "Composite decking with railings" },
-    { category: "decks", name: "Deck Refurbishment", range: "$8-15/sq ft", description: "Deck cleaning, repair, and staining" },
-    { category: "decks", name: "Porch Construction", range: "$20-35/sq ft", description: "Covered porch construction" },
-    { category: "decks", name: "Deck Railing Replacement", range: "$25-50/linear ft", description: "New deck railing system" },
-
-    // Garage
-    { category: "garage", name: "Garage Door - Single", range: "$800-2,000/door", description: "Single car garage door with opener" },
-    { category: "garage", name: "Garage Door - Double", range: "$1,200-3,000/door", description: "Double car garage door with opener" },
-    { category: "garage", name: "Garage Door Opener", range: "$300-800/opener", description: "Automatic garage door opener" },
-
-    // Concrete/Flatwork
-    { category: "concrete", name: "Driveway - Concrete", range: "$4-8/sq ft", description: "Concrete driveway installation" },
-    { category: "concrete", name: "Sidewalk/Walkway", range: "$5-10/sq ft", description: "Concrete sidewalk or walkway" },
-    { category: "concrete", name: "Patio - Concrete", range: "$6-12/sq ft", description: "Concrete patio installation" },
-    { category: "concrete", name: "Concrete Steps", range: "$300-800/set", description: "Concrete step construction" },
-    { category: "concrete", name: "Concrete Repair", range: "$8-15/sq ft", description: "Concrete crack repair and resurfacing" },
-
-    // Asphalt
-    { category: "asphalt", name: "Asphalt Driveway", range: "$3-6/sq ft", description: "Asphalt driveway installation" },
-    { category: "asphalt", name: "Asphalt Repair", range: "$2-5/sq ft", description: "Asphalt patching and repair" },
-    { category: "asphalt", name: "Sealcoating", range: "$0.50-1.50/sq ft", description: "Asphalt driveway sealcoating" },
-
-    // Landscaping
-    { category: "landscaping", name: "Lawn Installation - Sod", range: "$0.50-1.50/sq ft", description: "Sod installation with preparation" },
-    { category: "landscaping", name: "Lawn Installation - Seed", range: "$0.15-0.50/sq ft", description: "Lawn seeding with preparation" },
-    { category: "landscaping", name: "Shrub Planting", range: "$50-200/plant", description: "Foundation shrub installation" },
-    { category: "landscaping", name: "Tree Planting", range: "$200-800/tree", description: "Shade tree installation" },
-    { category: "landscaping", name: "Mulch Installation", range: "$3-6/sq ft", description: "Mulch bed installation" },
-    { category: "landscaping", name: "Sprinkler System", range: "$2,500-5,000/system", description: "Automatic irrigation system" },
-    { category: "landscaping", name: "Landscape Maintenance", range: "$100-300/month", description: "Monthly landscape maintenance" },
-
-    // Retaining Walls
-    { category: "retaining", name: "Segmental Block Wall", range: "$15-25/sq ft", description: "Interlocking block retaining wall" },
-    { category: "retaining", name: "Natural Stone Wall", range: "$25-45/sq ft", description: "Natural stone retaining wall" },
-    { category: "retaining", name: "Timber Retaining Wall", range: "$12-20/sq ft", description: "Pressure treated timber wall" },
-
-    // Fencing
-    { category: "fencing", name: "Chain Link Fence", range: "$8-15/linear ft", description: "Chain link fencing with posts" },
-    { category: "fencing", name: "Wood Privacy Fence", range: "$15-30/linear ft", description: "Wood privacy fence installation" },
-    { category: "fencing", name: "Vinyl Fence", range: "$20-35/linear ft", description: "Vinyl privacy or picket fence" },
-    { category: "fencing", name: "Iron/Steel Fence", range: "$25-50/linear ft", description: "Ornamental iron or steel fencing" },
-    { category: "fencing", name: "Fence Gate", range: "$200-800/gate", description: "Fence gate with hardware" }
+  kitchen_cabinetry: [
+    { category: "kitchen_cabinets", name: "Kitchen Cabinets - Stock", range: "$3,000-8,000", description: "Pre-manufactured kitchen cabinets" },
+    { category: "kitchen_cabinets", name: "Kitchen Cabinets - Semi-Custom", range: "$8,000-18,000", description: "Semi-custom kitchen cabinetry" },
+    { category: "kitchen_cabinets", name: "Kitchen Cabinets - Custom", range: "$18,000-40,000", description: "Fully custom kitchen cabinets" },
+    { category: "miscellaneous", name: "Cabinet Hardware", range: "$200-800", description: "Hinges, pulls, and cabinet accessories" },
+    { category: "miscellaneous", name: "Crown Molding", range: "$8-15/linear ft", description: "Cabinet crown molding installation" }
+  ],
+  vanity_cabinetry: [
+    { category: "bathroom_vanity", name: "Bathroom Vanity - Standard", range: "$300-800", description: "Basic bathroom vanity with sink" },
+    { category: "bathroom_vanity", name: "Bathroom Vanity - Custom", range: "$800-2,500", description: "Custom bathroom vanity" },
+    { category: "bathroom_vanity", name: "Double Vanity", range: "$1,200-3,500", description: "Double sink vanity installation" },
+    { category: "miscellaneous", name: "Vanity Mirrors", range: "$100-500", description: "Bathroom vanity mirrors" },
+    { category: "miscellaneous", name: "Medicine Cabinets", range: "$150-600", description: "Recessed or surface mount medicine cabinets" }
+  ],
+  countertops: [
+    { category: "kitchen_countertops", name: "Quartz Countertops", range: "$50-90/sq ft", description: "Engineered quartz countertops" },
+    { category: "kitchen_countertops", name: "Granite Countertops", range: "$40-75/sq ft", description: "Natural granite countertops" },
+    { category: "kitchen_countertops", name: "Marble Countertops", range: "$60-100/sq ft", description: "Natural marble countertops" },
+    { category: "vanity_countertops", name: "Vanity Tops - Quartz", range: "$300-800", description: "Bathroom vanity quartz tops" },
+    { category: "vanity_countertops", name: "Vanity Tops - Granite", range: "$250-600", description: "Bathroom vanity granite tops" },
+    { category: "undermount_sinks", name: "Undermount Kitchen Sink", range: "$200-800", description: "Stainless steel undermount sink" },
+    { category: "undermount_sinks", name: "Undermount Vanity Bowl", range: "$100-400", description: "Porcelain undermount vanity sink" }
+  ],
+  appliances: [
+    { category: "appliance_packages", name: "Basic Appliance Package", range: "$2,500-4,000", description: "Standard kitchen appliance set" },
+    { category: "appliance_packages", name: "Premium Appliance Package", range: "$5,000-10,000", description: "High-end appliance package" },
+    { category: "appliance_detailed", name: "Refrigerator", range: "$800-3,000", description: "Standard to premium refrigerator" },
+    { category: "appliance_detailed", name: "Range/Cooktop", range: "$500-2,500", description: "Electric or gas range" },
+    { category: "appliance_detailed", name: "Dishwasher", range: "$400-1,200", description: "Built-in dishwasher" },
+    { category: "appliance_detailed", name: "Microwave", range: "$200-800", description: "Over-range or countertop microwave" },
+    { category: "miscellaneous", name: "Range Hood", range: "$200-1,000", description: "Kitchen ventilation hood" },
+    { category: "miscellaneous", name: "Garbage Disposal", range: "$150-400", description: "Kitchen sink garbage disposal" }
+  ],
+  interior_doors: [
+    { category: "door_items", name: "Interior Door - Hollow Core", range: "$100-250/door", description: "Basic hollow core interior door" },
+    { category: "door_items", name: "Interior Door - Solid Core", range: "$150-400/door", description: "Solid core interior door" },
+    { category: "door_items", name: "Interior Door - Solid Wood", range: "$300-800/door", description: "Solid wood interior door" },
+    { category: "door_items", name: "Pocket Door Installation", range: "$400-800/door", description: "Sliding pocket door system" },
+    { category: "door_items", name: "Door Hardware Set", range: "$50-200/door", description: "Lockset and hinge hardware" }
+  ],
+  interior_woodwork: [
+    { category: "wall_trim", name: "Baseboard Trim", range: "$2-8/linear ft", description: "Interior baseboard installation" },
+    { category: "wall_trim", name: "Crown Molding", range: "$5-15/linear ft", description: "Decorative crown molding" },
+    { category: "wall_trim", name: "Chair Rail", range: "$3-10/linear ft", description: "Mid-wall decorative molding" },
+    { category: "woodwork_items", name: "Built-in Shelving", range: "$200-600/linear ft", description: "Custom built-in shelves" },
+    { category: "woodwork_items", name: "Wainscoting", range: "$10-25/sq ft", description: "Decorative wall paneling" },
+    { category: "railing_items", name: "Stair Railing", range: "$100-300/linear ft", description: "Interior stair railing system" },
+    { category: "shelving_items", name: "Floating Shelves", range: "$50-200/shelf", description: "Wall-mounted floating shelves" }
+  ],
+  interior_painting: [
+    { category: "interior_painting_quick", name: "Interior Paint - Walls Only", range: "$1.50-3/sq ft", description: "Wall painting with primer" },
+    { category: "interior_painting_quick", name: "Interior Paint - Walls & Ceiling", range: "$2-4/sq ft", description: "Complete room painting" },
+    { category: "interior_painting_detailed", name: "Trim Painting", range: "$1-3/linear ft", description: "Detailed trim and molding painting" },
+    { category: "interior_painting_detailed", name: "Cabinet Painting", range: "$3-8/sq ft", description: "Kitchen cabinet refinishing" },
+    { category: "interior_painting_detailed", name: "Specialty Finishes", range: "$4-12/sq ft", description: "Texture or decorative painting" }
+  ],
+  carpet_vinyl: [
+    { category: "carpeting", name: "Carpet - Basic", range: "$2-4/sq ft", description: "Standard carpet installation" },
+    { category: "carpeting", name: "Carpet - Premium", range: "$4-8/sq ft", description: "High-quality carpet with padding" },
+    { category: "sheet_vinyl", name: "Sheet Vinyl Flooring", range: "$2-6/sq ft", description: "Continuous sheet vinyl installation" },
+    { category: "vinyl_tile", name: "Luxury Vinyl Plank", range: "$3-8/sq ft", description: "Premium vinyl plank flooring" },
+    { category: "vinyl_tile", name: "Vinyl Tile", range: "$1.50-4/sq ft", description: "Standard vinyl tile installation" }
+  ],
+  tiling: [
+    { category: "floor_tile", name: "Ceramic Floor Tile", range: "$5-10/sq ft", description: "Standard ceramic floor tile" },
+    { category: "floor_tile", name: "Porcelain Floor Tile", range: "$8-15/sq ft", description: "Porcelain floor tile installation" },
+    { category: "floor_tile", name: "Natural Stone Tile", range: "$10-25/sq ft", description: "Marble, travertine, or granite tile" },
+    { category: "shower_tile", name: "Shower Wall Tile", range: "$8-20/sq ft", description: "Bathroom shower tile installation" },
+    { category: "shower_tile", name: "Shower Floor Tile", range: "$10-25/sq ft", description: "Slip-resistant shower floor tile" },
+    { category: "miscellaneous_tile", name: "Backsplash Tile", range: "$10-30/sq ft", description: "Kitchen or bathroom backsplash" },
+    { category: "miscellaneous_tile", name: "Tile Trim/Edging", range: "$5-15/linear ft", description: "Decorative tile trim pieces" }
+  ],
+  hardwood_flooring: [
+    { category: "laminate_flooring", name: "Laminate Flooring", range: "$3-8/sq ft", description: "High-quality laminate flooring" },
+    { category: "hardwood_flooring", name: "Hardwood - Engineered", range: "$6-12/sq ft", description: "Engineered hardwood installation" },
+    { category: "hardwood_flooring", name: "Hardwood - Solid", range: "$8-15/sq ft", description: "Solid hardwood flooring" },
+    { category: "hardwood_refinishing", name: "Hardwood Refinishing", range: "$3-5/sq ft", description: "Sand and refinish existing floors" },
+    { category: "miscellaneous", name: "Floor Transitions", range: "$10-25/linear ft", description: "Transition strips between flooring" },
+    { category: "miscellaneous", name: "Baseboards & Quarter Round", range: "$2-6/linear ft", description: "Floor trim installation" }
+  ],
+  basement: [
+    { category: "basement_items", name: "Basement Waterproofing", range: "$3,000-8,000", description: "Interior basement waterproofing system" },
+    { category: "basement_items", name: "Basement Finishing", range: "$20-50/sq ft", description: "Complete basement finishing" },
+    { category: "basement_items", name: "Egress Window Installation", range: "$2,500-5,000/window", description: "Emergency egress window" },
+    { category: "basement_items", name: "Sump Pump Installation", range: "$500-1,500", description: "Basement sump pump system" },
+    { category: "basement_items", name: "French Drain System", range: "$20-30/linear ft", description: "Interior perimeter drainage" }
+  ],
+  laundry: [
+    { category: "laundry_items", name: "Laundry Room Setup", range: "$1,000-3,000", description: "Complete laundry room installation" },
+    { category: "laundry_items", name: "Washer/Dryer Hookups", range: "$300-800", description: "Plumbing and electrical connections" },
+    { category: "laundry_items", name: "Laundry Sink Installation", range: "$200-600", description: "Utility sink with faucet" },
+    { category: "laundry_items", name: "Laundry Cabinets", range: "$500-2,000", description: "Storage cabinets above washer/dryer" }
+  ],
+  foundations: [
+    { category: "foundation_assemblies", name: "Foundation Repair", range: "$5,000-15,000", description: "Structural foundation repair" },
+    { category: "foundation_assemblies", name: "New Foundation", range: "$15,000-30,000", description: "Complete foundation installation" },
+    { category: "excavation_detailed", name: "Excavation Work", range: "$3-8/cubic yard", description: "Site excavation and grading" },
+    { category: "foundation_detailed", name: "Concrete Footings", range: "$8-15/linear ft", description: "Foundation footing installation" },
+    { category: "foundation_detailed", name: "Foundation Walls", range: "$15-25/sq ft", description: "Poured concrete foundation walls" },
+    { category: "structural_repairs", name: "Beam Replacement", range: "$1,500-4,000/beam", description: "Structural support beam replacement" },
+    { category: "structural_repairs", name: "Floor Joist Repair", range: "$200-500/joist", description: "Floor joist replacement or reinforcement" }
+  ],
+  misc_interior: [
+    { category: "miscellaneous", name: "Interior Cleanup", range: "$500-2,000", description: "Construction cleanup and preparation" },
+    { category: "miscellaneous", name: "Interior Demolition", range: "$2-8/sq ft", description: "Selective interior demolition" },
+    { category: "miscellaneous", name: "Dumpster Rental", range: "$300-600/week", description: "Construction debris disposal" },
+    { category: "miscellaneous", name: "Permits & Inspections", range: "$200-1,000", description: "Building permits and inspection fees" }
+  ],
+  remediation: [
+    { category: "remediation_abatement", name: "Asbestos Abatement", range: "$15-25/sq ft", description: "Professional asbestos removal" },
+    { category: "remediation_abatement", name: "Lead Paint Removal", range: "$8-15/sq ft", description: "Safe lead paint abatement" },
+    { category: "remediation_abatement", name: "Mold Remediation", range: "$10-20/sq ft", description: "Mold removal and prevention" },
+    { category: "miscellaneous", name: "Air Quality Testing", range: "$300-800", description: "Pre and post remediation testing" },
+    { category: "miscellaneous", name: "HVAC Duct Cleaning", range: "$300-1,000", description: "Complete ductwork sanitization" }
   ]
 };
 

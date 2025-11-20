@@ -9,14 +9,27 @@ import { cn } from "@/utils/cn";
 import { toast } from "react-toastify";
 
 const roomTypeConfig = {
-  kitchen: { icon: "ChefHat", color: "bg-orange-100 text-orange-700", label: "Kitchen" },
-  bathroom: { icon: "Bath", color: "bg-blue-100 text-blue-700", label: "Bathroom" },
-  bedroom: { icon: "Bed", color: "bg-purple-100 text-purple-700", label: "Bedroom" },
-  living: { icon: "Sofa", color: "bg-green-100 text-green-700", label: "Living Room" },
-  flooring: { icon: "Square", color: "bg-amber-100 text-amber-700", label: "Flooring" },
-  mechanicals: { icon: "Settings", color: "bg-gray-100 text-gray-700", label: "Mechanicals" },
-  exterior: { icon: "Home", color: "bg-emerald-100 text-emerald-700", label: "Exterior" },
-  other: { icon: "MoreHorizontal", color: "bg-slate-100 text-slate-700", label: "Other" }
+  demolition: { icon: "Hammer", color: "bg-red-100 text-red-700", label: "Interior Demolition" },
+  framing: { icon: "Grid3x3", color: "bg-yellow-100 text-yellow-700", label: "Framing" },
+  insulation: { icon: "Shield", color: "bg-cyan-100 text-cyan-700", label: "Insulation" },
+  drywall: { icon: "Square", color: "bg-gray-100 text-gray-700", label: "Drywall" },
+  kitchen_package: { icon: "ChefHat", color: "bg-orange-100 text-orange-700", label: "Kitchen (Packaged)" },
+  bathroom_package: { icon: "Bath", color: "bg-blue-100 text-blue-700", label: "Bathrooms (Packaged)" },
+  kitchen_cabinetry: { icon: "Archive", color: "bg-amber-100 text-amber-700", label: "Kitchen Cabinetry" },
+  vanity_cabinetry: { icon: "Package", color: "bg-indigo-100 text-indigo-700", label: "Vanity Cabinetry" },
+  countertops: { icon: "Rectangle", color: "bg-stone-100 text-stone-700", label: "Countertops" },
+  appliances: { icon: "Zap", color: "bg-emerald-100 text-emerald-700", label: "Appliances" },
+  interior_doors: { icon: "DoorOpen", color: "bg-purple-100 text-purple-700", label: "Interior Doors" },
+  interior_woodwork: { icon: "TreePine", color: "bg-green-100 text-green-700", label: "Interior Woodwork" },
+  interior_painting: { icon: "Paintbrush2", color: "bg-pink-100 text-pink-700", label: "Interior Painting" },
+  carpet_vinyl: { icon: "Layers", color: "bg-rose-100 text-rose-700", label: "Carpet/Vinyl" },
+  tiling: { icon: "Grid2x2", color: "bg-slate-100 text-slate-700", label: "Tiling" },
+  hardwood_flooring: { icon: "TreeDeciduous", color: "bg-amber-100 text-amber-700", label: "Hardwood Flooring" },
+  basement: { icon: "Building", color: "bg-gray-100 text-gray-700", label: "Basement" },
+  laundry: { icon: "Shirt", color: "bg-blue-100 text-blue-700", label: "Laundry" },
+  foundations: { icon: "Building2", color: "bg-stone-100 text-stone-700", label: "Foundations" },
+  misc_interior: { icon: "Home", color: "bg-neutral-100 text-neutral-700", label: "Misc Interior Items" },
+  remediation: { icon: "ShieldAlert", color: "bg-red-100 text-red-700", label: "Remediation/Abatement" }
 };
 
 const RoomSection = ({ room, onUpdate, onDelete, onCostChange }) => {

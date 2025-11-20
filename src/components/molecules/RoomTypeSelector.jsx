@@ -4,14 +4,27 @@ import ApperIcon from "@/components/ApperIcon";
 import { cn } from "@/utils/cn";
 
 const roomTypes = [
-  { value: "kitchen", label: "Kitchen", icon: "ChefHat", color: "bg-orange-100 text-orange-700" },
-  { value: "bathroom", label: "Bathroom", icon: "Bath", color: "bg-blue-100 text-blue-700" },
-  { value: "bedroom", label: "Bedroom", icon: "Bed", color: "bg-purple-100 text-purple-700" },
-  { value: "living", label: "Living Room", icon: "Sofa", color: "bg-green-100 text-green-700" },
-  { value: "flooring", label: "Flooring", icon: "Square", color: "bg-amber-100 text-amber-700" },
-  { value: "mechanicals", label: "Mechanicals", icon: "Settings", color: "bg-gray-100 text-gray-700" },
-  { value: "exterior", label: "Exterior", icon: "Home", color: "bg-emerald-100 text-emerald-700" },
-  { value: "other", label: "Other", icon: "MoreHorizontal", color: "bg-slate-100 text-slate-700" }
+  { value: "demolition", label: "Interior Demolition", icon: "Hammer", color: "bg-red-100 text-red-700" },
+  { value: "framing", label: "Framing", icon: "Grid3x3", color: "bg-yellow-100 text-yellow-700" },
+  { value: "insulation", label: "Insulation", icon: "Shield", color: "bg-cyan-100 text-cyan-700" },
+  { value: "drywall", label: "Drywall", icon: "Square", color: "bg-gray-100 text-gray-700" },
+  { value: "kitchen_package", label: "Kitchen (Packaged)", icon: "ChefHat", color: "bg-orange-100 text-orange-700" },
+  { value: "bathroom_package", label: "Bathrooms (Packaged)", icon: "Bath", color: "bg-blue-100 text-blue-700" },
+  { value: "kitchen_cabinetry", label: "Kitchen Cabinetry", icon: "Archive", color: "bg-amber-100 text-amber-700" },
+  { value: "vanity_cabinetry", label: "Vanity Cabinetry", icon: "Package", color: "bg-indigo-100 text-indigo-700" },
+  { value: "countertops", label: "Countertops", icon: "Rectangle", color: "bg-stone-100 text-stone-700" },
+  { value: "appliances", label: "Appliances", icon: "Zap", color: "bg-emerald-100 text-emerald-700" },
+  { value: "interior_doors", label: "Interior Doors", icon: "DoorOpen", color: "bg-purple-100 text-purple-700" },
+  { value: "interior_woodwork", label: "Interior Woodwork", icon: "TreePine", color: "bg-green-100 text-green-700" },
+  { value: "interior_painting", label: "Interior Painting", icon: "Paintbrush2", color: "bg-pink-100 text-pink-700" },
+  { value: "carpet_vinyl", label: "Carpet/Vinyl", icon: "Layers", color: "bg-rose-100 text-rose-700" },
+  { value: "tiling", label: "Tiling", icon: "Grid2x2", color: "bg-slate-100 text-slate-700" },
+  { value: "hardwood_flooring", label: "Hardwood Flooring", icon: "TreeDeciduous", color: "bg-amber-100 text-amber-700" },
+  { value: "basement", label: "Basement", icon: "Building", color: "bg-gray-100 text-gray-700" },
+  { value: "laundry", label: "Laundry", icon: "Shirt", color: "bg-blue-100 text-blue-700" },
+  { value: "foundations", label: "Foundations", icon: "Building2", color: "bg-stone-100 text-stone-700" },
+  { value: "misc_interior", label: "Misc Interior Items", icon: "Home", color: "bg-neutral-100 text-neutral-700" },
+  { value: "remediation", label: "Remediation/Abatement", icon: "ShieldAlert", color: "bg-red-100 text-red-700" }
 ];
 
 const RoomTypeSelector = ({ onSelect, className }) => {
