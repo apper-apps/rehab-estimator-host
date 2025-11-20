@@ -66,15 +66,98 @@ const repairCategoriesByRoom = {
     { category: "plumbing", name: "Plumbing - Water Heater", range: "$800-2,000", description: "Water heater replacement" },
     { category: "insulation", name: "Insulation - Attic", range: "$1.50-3.50/sq ft", description: "Blown-in attic insulation" }
   ],
-  exterior: [
-    { category: "roofing", name: "Roofing - Asphalt Shingles", range: "$5-8/sq ft", description: "Asphalt shingle roof replacement" },
-    { category: "roofing", name: "Roofing - Metal", range: "$8-14/sq ft", description: "Metal roof installation" },
-    { category: "siding", name: "Siding - Vinyl", range: "$3-7/sq ft", description: "Vinyl siding installation" },
-    { category: "siding", name: "Siding - Fiber Cement", range: "$6-12/sq ft", description: "Fiber cement siding" },
-    { category: "windows", name: "Exterior Windows", range: "$400-1,200/window", description: "Full window replacement" },
-    { category: "doors", name: "Entry Doors", range: "$500-2,000/door", description: "Front and back door replacement" },
-    { category: "paint", name: "Exterior Paint", range: "$2-5/sq ft", description: "Exterior house painting" },
-    { category: "concrete", name: "Driveway/Walkway", range: "$4-8/sq ft", description: "Concrete driveway or walkway" }
+exterior: [
+    // Roofing
+    { category: "roofing", name: "Asphalt Roofing - Standard Shingles", range: "$5-8/sq ft", description: "Standard asphalt shingle roof replacement" },
+    { category: "roofing", name: "Asphalt Roofing - Architectural Shingles", range: "$7-12/sq ft", description: "Premium architectural asphalt shingles" },
+    { category: "roofing", name: "Metal Roofing - Standing Seam", range: "$8-14/sq ft", description: "Standing seam metal roof installation" },
+    { category: "roofing", name: "Metal Roofing - Corrugated", range: "$6-10/sq ft", description: "Corrugated metal roofing system" },
+    { category: "roofing", name: "Tile Roofing", range: "$10-18/sq ft", description: "Clay or concrete tile roofing" },
+    { category: "roofing", name: "Slate Roofing", range: "$15-25/sq ft", description: "Natural slate roof installation" },
+    { category: "roofing", name: "Roof Repair - Shingle Replacement", range: "$200-500/section", description: "Partial shingle replacement and repair" },
+    { category: "roofing", name: "Gutters & Downspouts", range: "$8-15/linear ft", description: "Gutter system installation" },
+    { category: "roofing", name: "Roof Flashing Repair", range: "$300-800/repair", description: "Chimney and vent flashing repair" },
+
+    // Siding
+    { category: "siding", name: "Vinyl Siding", range: "$3-7/sq ft", description: "Vinyl siding installation with trim" },
+    { category: "siding", name: "Fiber Cement Siding", range: "$6-12/sq ft", description: "HardiePlank or similar fiber cement siding" },
+    { category: "siding", name: "Wood Siding - Cedar", range: "$8-15/sq ft", description: "Cedar wood siding installation" },
+    { category: "siding", name: "Brick Veneer", range: "$12-20/sq ft", description: "Brick veneer siding installation" },
+    { category: "siding", name: "Stone Veneer", range: "$15-25/sq ft", description: "Natural or cultured stone veneer" },
+    { category: "siding", name: "Aluminum Siding", range: "$4-8/sq ft", description: "Aluminum siding with insulation" },
+    { category: "siding", name: "Stucco Repair", range: "$6-12/sq ft", description: "Stucco repair and refinishing" },
+
+    // Masonry
+    { category: "masonry", name: "Brick Repointing", range: "$8-15/sq ft", description: "Mortar joint repair and repointing" },
+    { category: "masonry", name: "Stone Foundation Repair", range: "$15-30/sq ft", description: "Stone foundation restoration" },
+    { category: "masonry", name: "Chimney Repair", range: "$1,500-4,000/chimney", description: "Chimney reconstruction and repair" },
+    { category: "masonry", name: "Block Wall Construction", range: "$12-20/sq ft", description: "Concrete block wall construction" },
+    { category: "masonry", name: "Retaining Wall - Block", range: "$20-35/sq ft", description: "Segmented block retaining wall" },
+
+    // Exterior Painting
+    { category: "paint", name: "House Exterior Paint - Full", range: "$2-5/sq ft", description: "Complete exterior house painting" },
+    { category: "paint", name: "Trim & Window Paint", range: "$3-8/linear ft", description: "Exterior trim and window painting" },
+    { category: "paint", name: "Deck Staining", range: "$2-4/sq ft", description: "Deck cleaning and staining" },
+    { category: "paint", name: "Fence Painting/Staining", range: "$1.50-3/sq ft", description: "Fence painting or staining" },
+
+    // Exterior Doors
+    { category: "doors", name: "Entry Door - Standard", range: "$500-1,500/door", description: "Standard entry door with hardware" },
+    { category: "doors", name: "Entry Door - Premium", range: "$1,500-3,500/door", description: "Premium entry door with sidelights" },
+    { category: "doors", name: "Patio Door", range: "$800-2,500/door", description: "Sliding or French patio door" },
+    { category: "doors", name: "Storm Door", range: "$200-600/door", description: "Storm door installation" },
+    { category: "doors", name: "Door Hardware Upgrade", range: "$100-300/door", description: "Lockset and hardware upgrade" },
+
+    // Windows
+    { category: "windows", name: "Vinyl Windows", range: "$400-800/window", description: "Double-hung vinyl window replacement" },
+    { category: "windows", name: "Wood Windows", range: "$600-1,200/window", description: "Wood window replacement" },
+    { category: "windows", name: "Fiberglass Windows", range: "$500-1,000/window", description: "Fiberglass window installation" },
+    { category: "windows", name: "Bay/Bow Windows", range: "$1,500-3,500/window", description: "Bay or bow window installation" },
+    { category: "windows", name: "Window Trim Repair", range: "$150-400/window", description: "Exterior window trim repair" },
+
+    // Decks/Porches
+    { category: "decks", name: "Pressure Treated Deck", range: "$15-25/sq ft", description: "Pressure treated lumber deck" },
+    { category: "decks", name: "Composite Decking", range: "$25-40/sq ft", description: "Composite decking with railings" },
+    { category: "decks", name: "Deck Refurbishment", range: "$8-15/sq ft", description: "Deck cleaning, repair, and staining" },
+    { category: "decks", name: "Porch Construction", range: "$20-35/sq ft", description: "Covered porch construction" },
+    { category: "decks", name: "Deck Railing Replacement", range: "$25-50/linear ft", description: "New deck railing system" },
+
+    // Garage
+    { category: "garage", name: "Garage Door - Single", range: "$800-2,000/door", description: "Single car garage door with opener" },
+    { category: "garage", name: "Garage Door - Double", range: "$1,200-3,000/door", description: "Double car garage door with opener" },
+    { category: "garage", name: "Garage Door Opener", range: "$300-800/opener", description: "Automatic garage door opener" },
+
+    // Concrete/Flatwork
+    { category: "concrete", name: "Driveway - Concrete", range: "$4-8/sq ft", description: "Concrete driveway installation" },
+    { category: "concrete", name: "Sidewalk/Walkway", range: "$5-10/sq ft", description: "Concrete sidewalk or walkway" },
+    { category: "concrete", name: "Patio - Concrete", range: "$6-12/sq ft", description: "Concrete patio installation" },
+    { category: "concrete", name: "Concrete Steps", range: "$300-800/set", description: "Concrete step construction" },
+    { category: "concrete", name: "Concrete Repair", range: "$8-15/sq ft", description: "Concrete crack repair and resurfacing" },
+
+    // Asphalt
+    { category: "asphalt", name: "Asphalt Driveway", range: "$3-6/sq ft", description: "Asphalt driveway installation" },
+    { category: "asphalt", name: "Asphalt Repair", range: "$2-5/sq ft", description: "Asphalt patching and repair" },
+    { category: "asphalt", name: "Sealcoating", range: "$0.50-1.50/sq ft", description: "Asphalt driveway sealcoating" },
+
+    // Landscaping
+    { category: "landscaping", name: "Lawn Installation - Sod", range: "$0.50-1.50/sq ft", description: "Sod installation with preparation" },
+    { category: "landscaping", name: "Lawn Installation - Seed", range: "$0.15-0.50/sq ft", description: "Lawn seeding with preparation" },
+    { category: "landscaping", name: "Shrub Planting", range: "$50-200/plant", description: "Foundation shrub installation" },
+    { category: "landscaping", name: "Tree Planting", range: "$200-800/tree", description: "Shade tree installation" },
+    { category: "landscaping", name: "Mulch Installation", range: "$3-6/sq ft", description: "Mulch bed installation" },
+    { category: "landscaping", name: "Sprinkler System", range: "$2,500-5,000/system", description: "Automatic irrigation system" },
+    { category: "landscaping", name: "Landscape Maintenance", range: "$100-300/month", description: "Monthly landscape maintenance" },
+
+    // Retaining Walls
+    { category: "retaining", name: "Segmental Block Wall", range: "$15-25/sq ft", description: "Interlocking block retaining wall" },
+    { category: "retaining", name: "Natural Stone Wall", range: "$25-45/sq ft", description: "Natural stone retaining wall" },
+    { category: "retaining", name: "Timber Retaining Wall", range: "$12-20/sq ft", description: "Pressure treated timber wall" },
+
+    // Fencing
+    { category: "fencing", name: "Chain Link Fence", range: "$8-15/linear ft", description: "Chain link fencing with posts" },
+    { category: "fencing", name: "Wood Privacy Fence", range: "$15-30/linear ft", description: "Wood privacy fence installation" },
+    { category: "fencing", name: "Vinyl Fence", range: "$20-35/linear ft", description: "Vinyl privacy or picket fence" },
+    { category: "fencing", name: "Iron/Steel Fence", range: "$25-50/linear ft", description: "Ornamental iron or steel fencing" },
+    { category: "fencing", name: "Fence Gate", range: "$200-800/gate", description: "Fence gate with hardware" }
   ]
 };
 
