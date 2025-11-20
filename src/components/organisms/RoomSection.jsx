@@ -35,9 +35,13 @@ const roomTypeConfig = {
 const RoomSection = ({ room, onUpdate, onDelete, onCostChange }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [costItems, setCostItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
 
-  const config = roomTypeConfig[room.type] || roomTypeConfig.other;
+  const config = roomTypeConfig[room?.type] || {
+    icon: "Home",
+    color: "bg-gray-100 text-gray-700",
+    label: "Unknown Room Type"
+  };
 
   useEffect(() => {
     loadCostItems();
